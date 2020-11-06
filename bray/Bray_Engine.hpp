@@ -1,3 +1,5 @@
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
+
 #include "Bray_Window.hpp"
+#include "Bray_Sprites.hpp"
+#include "main.hpp"
+// #include <iostream>

@@ -1,25 +1,34 @@
+#pragma once
 #include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
+using namespace std;
+#include "funcdef.hpp"
 
+SDL_Renderer* renderer;
+SDL_Window *window;
 
-
-
-void CreateWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
+void WindowSetup(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
+    start();
     /*CREATE WINDOW*/
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window *window = SDL_CreateWindow(title, 0, 0, 
+    window = SDL_CreateWindow(title, 0, 0, 
     SCREEN_HEIGHT, SCREEN_WIDTH, SDL_WINDOW_HIDDEN);
     SDL_ShowWindow(window);
+    //Renderer
+    renderer = SDL_CreateRenderer(window, -1, 0);
+
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+
+    SDL_RenderClear(renderer); // fill the scene with white
+
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // the rect color (solid red)
+
+
+
+
+    SDL_Delay(3000);
     SDL_Event event;
     int running = 1;
-    while(running) {
-      while(SDL_PollEvent(&event)) {
-        if(event.type == SDL_QUIT) {
-          running = 0;
-        }
-      }
-      SDL_Delay( 32 );
-    }
+  
     SDL_DestroyWindow(window);
     SDL_Quit();
 
