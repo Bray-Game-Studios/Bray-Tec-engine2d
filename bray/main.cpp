@@ -1,9 +1,11 @@
-
 #include "Bray_Engine.hpp"
 
-void start() {
-    printf("oi");
-}
+using namespace std;
+
 void update() {
+   
+}
+void start() {
     
 }
+
