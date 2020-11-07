@@ -38,12 +38,7 @@ void WindowSetup(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
             if (e.type == SDL_QUIT){
                 quit = true;
             }
-            if (e.type == SDL_KEYDOWN){
-                quit = true;
-            }
-            if (e.type == SDL_MOUSEBUTTONDOWN){
-                quit = true;
-            }
+            
         }
         frames++;
     }

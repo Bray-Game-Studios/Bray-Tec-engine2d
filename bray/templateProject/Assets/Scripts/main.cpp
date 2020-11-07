@@ -3,7 +3,8 @@
 using namespace std;
 
 void update() {
-   Sprite mario(0, 0, 50, 50, "/Users/home/Bray-engine/bray/templateProject/Assets/sprites/mario.bmp");
+   Vector2 mario_Vector = Vector2(0, 0, 0);
+   Sprite mario(mario_Vector, 50, 50, "/Users/home/Bray-engine/bray/templateProject/Assets/sprites/mario.bmp");
    
    Deb.Log("mario!");
 }

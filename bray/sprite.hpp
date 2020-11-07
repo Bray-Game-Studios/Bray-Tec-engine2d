@@ -1,23 +1,21 @@
 #pragma once
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
+
 #include <iostream>
 
 using namespace std;
 class Sprite {
     public:
-        float x;
-        float y;
+        Vector2 Transform = Vector2(0, 0, 0);
         float h;
         float w;
-
         const char *image;
         SDL_Surface* surface; 
-    Sprite(float conX, float conY, float conH, float conW, const char *conImage) {
-
-        x = conX;
-        y = conY;
-
+    Sprite(Vector2 conTransform, float conH, float conW, const char *conImage) {
+         Transform = Vector2(conTransform.x, conTransform.y, conTransform.rotation);
+        
+        
         h = conH;
         w = conW;
         
@@ -33,8 +31,8 @@ class Sprite {
         SDL_FreeSurface(temp); 
         /*Prepare rect to store sprite in*/
         SDL_Rect rect;
-        rect.x = x; 
-        rect.y = y; 
+        rect.x = Transform.x; 
+        rect.y = Transform.y; 
         rect.w = w; 
         rect.h = h; 
 

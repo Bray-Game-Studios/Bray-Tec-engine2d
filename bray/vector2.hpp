@@ -5,10 +5,14 @@ using namespace std;
 
 class Vector2 {
     public:
-        float x = 0;
-        float y = 0;
+        int x = 0;
+        int y = 0;
 
-        float rotation = 0;
-
+        int rotation = 0;
+        Vector2(int conX, int conY, int conRotation) {
+            x = conX;
+            y = conY;
+            rotation = conRotation;
+        }
     
 };
