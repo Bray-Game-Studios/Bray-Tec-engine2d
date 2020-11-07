@@ -2,11 +2,15 @@
 
 using namespace std;
 
+Vector2 mario_Vector = Vector2(0, 0, 0);
+
 void update() {
-   Vector2 mario_Vector = Vector2(0, 0, 0);
-   Sprite mario(mario_Vector, 50, 50, "/Users/home/Bray-engine/bray/templateProject/Assets/sprites/mario.bmp");
    
-   Deb.Log("mario!");
+   Sprite mario = Sprite(mario_Vector, 50, 50, "/Users/home/Bray-engine/bray/templateProject/Assets/sprites/mario.bmp");
+   
+   Deb.Log("hi");
+   
+ 
 }
 
 void start() {

@@ -2,6 +2,7 @@
 #include "SDL2/SDL.h"
 #include "funcdef.hpp"
 #include "SDL2/SDL_image.h"
+#include "time.hpp"
 using namespace std;
 int frames = 0;
 
@@ -25,14 +26,20 @@ void WindowSetup(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
    
-
+    
     
 
     SDL_Event e;
     
+    /*Calculate deltatime*/
+    Uint64 NOW = SDL_GetPerformanceCounter();
+    Uint64 LAST = 0;
     
     while (!quit){
-        
+        LAST = NOW;
+        NOW = SDL_GetPerformanceCounter();
+
+        _Time.deltaTime = (double)((NOW - LAST)*1000 / (double)SDL_GetPerformanceFrequency() );        
         update();
         while (SDL_PollEvent(&e)){
             if (e.type == SDL_QUIT){
