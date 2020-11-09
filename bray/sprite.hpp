@@ -7,13 +7,16 @@
 using namespace std;
 class Sprite {
     public:
-        Vector2 Transform = Vector2(0, 0, 0);
+        Vector2 vector = Vector2(0, 0, 0);
         float h;
         float w;
         const char *image;
         SDL_Surface* surface; 
+        void Transform(Vector2 TransformVector) {
+            vector = Vector2(TransformVector.x, TransformVector.y, TransformVector.rotation);
+        }
     Sprite(Vector2 conTransform, float conH, float conW, const char *conImage) {
-         Transform = Vector2(conTransform.x, conTransform.y, conTransform.rotation);
+         vector = Vector2(conTransform.x, conTransform.y, conTransform.rotation);
         
         
         h = conH;
@@ -31,8 +34,8 @@ class Sprite {
         SDL_FreeSurface(temp); 
         /*Prepare rect to store sprite in*/
         SDL_Rect rect;
-        rect.x = Transform.x; 
-        rect.y = Transform.y; 
+        rect.x = vector.x; 
+        rect.y = vector.y; 
         rect.w = w; 
         rect.h = h; 
 

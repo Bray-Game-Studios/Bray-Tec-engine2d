@@ -5,7 +5,7 @@
 #include "time.hpp"
 using namespace std;
 int frames = 0;
-
+SDL_Event e;
 SDL_Renderer* renderer;
 SDL_Window *window;
 bool quit = false;
@@ -15,8 +15,8 @@ void WindowSetup(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
 
      
     /*CREATE WINDOW*/
-    SDL_Init(SDL_INIT_VIDEO);
-    
+    SDL_Init(SDL_INIT_EVERYTHING);
+
     window = SDL_CreateWindow(title, 0, 0, 
     SCREEN_HEIGHT, SCREEN_WIDTH, SDL_WINDOW_HIDDEN);
     SDL_ShowWindow(window);
@@ -29,13 +29,16 @@ void WindowSetup(int SCREEN_WIDTH, int SCREEN_HEIGHT, char title[5000]) {
     
     
 
-    SDL_Event e;
+    
     
     /*Calculate deltatime*/
     Uint64 NOW = SDL_GetPerformanceCounter();
     Uint64 LAST = 0;
-    
+ 
     while (!quit){
+        if (frames == 0) {
+            start();
+        }
         LAST = NOW;
         NOW = SDL_GetPerformanceCounter();
 
